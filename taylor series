@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+#define pi 3.142
+void main()
+{
+    int degree,i;
+    float num, den,term,sum=0,x;
+    printf("enter the value of degree\n");
+    scanf("%d",&degree);
+    x=degree*(pi/180);
+    num=x;
+    den=1;
+    i=2;
+    do
+    {
+        term=num/den;
+        num=-num*x*x;
+        den=den*i*(i+1);
+        sum=sum+term;
+        i=i+2;
+    }
+    while(fabs(term)>=0.000001);
+    printf("sine of %d is %.3f\n",degree,sum);
+    printf("sine using in built function for %d is %.3f",degree,sin(x));
+}    
+    
